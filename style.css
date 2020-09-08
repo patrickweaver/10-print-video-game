@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  background-color: white;
+  max-width: 600px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+#title {
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+#title h1, #controls ul {
+  background-color: black;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#tenprint {
+  border: 1px solid black;
+}
+
+#controls {
+  position: fixed;
+  bottom: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+#controls ul {
+  padding: 10px;
+}
+
+li {
+  list-style-type: none;
+  text-align: left;
+}
+
+input {
+  width: 100px;
+}
