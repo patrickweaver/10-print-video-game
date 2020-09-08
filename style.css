@@ -3,6 +3,7 @@
 }
 
 body {
+  margin: 0;
   font-family: helvetica, arial, sans-serif;
   background-color: white;
   max-width: 600px;
