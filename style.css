@@ -41,11 +41,40 @@ body {
   padding: 10px;
 }
 
-li {
+#controls ul li {
   list-style-type: none;
+  text-align: right;
+  height: 25px;
+  overflow: hidden;
+}
+
+#controls > ul > li > input, #controls > ul > li > label {
+  display: inline-block;
+}
+
+#controls .value-label {
+  min-width: 120px;
   text-align: left;
 }
 
 input {
   width: 100px;
+}
+
+#direction-control-label > span {
+  line-height: 14px;
+  display: inline-block;
+  font-size: 20px;
+  margin: 0 3px;
+  height: 19px;
+  vertical-align: middle;
+}
+
+#direction-control-label > #direction-control-label-down {
+  transform: rotate(45deg);
+  
+}
+  
+#direction-control-label > #direction-control-label-up {
+  transform: rotate(-45deg);
 }
