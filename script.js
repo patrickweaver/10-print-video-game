@@ -12,7 +12,7 @@ const directionLabelUp = document.getElementById("direction-control-label-up");
 const directionLabelDown = document.getElementById("direction-control-label-down");
 
 
-spacingControl.addEventListener('change', updateSpacing);
+spacingControl.addEventListener('input', updateSpacing);
 
 function updateSpacing(event) {
   const newSpacing = gridSizes[spacingControl.value];
@@ -20,7 +20,7 @@ function updateSpacing(event) {
   spacing = newSpacing;
 }
 
-speedControl.addEventListener('change', updateSpeed);
+speedControl.addEventListener('input', updateSpeed);
 
 function updateSpeed(event) {
   window.clearTimeout(timer);
@@ -40,7 +40,7 @@ function updateSpeed(event) {
   replaceSquare();
 }
 
-directionControl.addEventListener('change', updateDirection);
+directionControl.addEventListener('input', updateDirection);
 
 function updateDirection(event) {
   const newValue = directionControl.value
