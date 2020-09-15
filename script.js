@@ -8,6 +8,8 @@ const spacingLabel = document.getElementById("spacing-control-label");
 const speedControl = document.getElementById("speed-control");
 const speedLabel = document.getElementById("speed-control-label");
 const directionControl = document.getElementById("direction-control");
+const directionLabelUp = document.getElementById("direction-control-label-up");
+const directionLabelDown = document.getElementById("direction-control-label-down");
 
 
 spacingControl.addEventListener('change', updateSpacing);
@@ -23,7 +25,16 @@ speedControl.addEventListener('change', updateSpeed);
 function updateSpeed(event) {
   window.clearTimeout(timer);
   const newSpeed = speeds[speedControl.value];
-  const readableLabel = `${newSpeed / 1000} Sec.`
+  const perSec = (1 / (newSpeed / 1000))
+  let label = `${perSec} per sec.`;
+  if (perSec < 1) {
+    const perMin = (perSec * 60);
+    label = `${perMin} per min.`;
+    if (perMin < 1) {
+      label = `${perMin * 60} per hour`;
+    }
+  }
+  const readableLabel = label;
   speedLabel.innerHTML = readableLabel;
   speed = newSpeed;
   replaceSquare();
@@ -32,7 +43,12 @@ function updateSpeed(event) {
 directionControl.addEventListener('change', updateDirection);
 
 function updateDirection(event) {
-  direction = directionControl.value;
+  const newValue = directionControl.value
+  direction = newValue;
+  const upPercent = newValue / 10;
+  const downPercent = 1 - upPercent;
+  directionLabelUp.style.fontSize = `${40 * upPercent}px`;
+  directionLabelDown.style.fontSize = `${40 * downPercent}px`;
 }
 
 window.onresize = findSize;
@@ -52,7 +68,7 @@ var speed;
 var direction = 5;
 var timer;
 
-const speeds = [0, .2, 1, 2, 5, 10, 20, 40, 100, 250, 500, 1000, 10000, 1000 * 60, 1000 * 60 * 5];
+const speeds = [0, .2, 1, 2, 5, 10, 20, 40, 100, 250, 500, 1000, 10000, 1000 * 60, 1000 * 60 * 5].reverse();
 
 var gridSizes;
 
